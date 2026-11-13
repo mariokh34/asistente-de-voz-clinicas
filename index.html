@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asistente de voz para clínicas dentales | AI Evolve</title>
+<meta name="description" content="Un asistente de voz con IA contesta el teléfono de tu clínica dental a cualquier hora y deja la cita agendada. Calcula cuánto te cuestan las llamadas sin contestar y pide una demo.">
+<meta property="og:title" content="Asistente de voz para clínicas dentales | AI Evolve">
+<meta property="og:description" content="Contesta el teléfono de tu clínica a cualquier hora y deja la cita agendada. Calcula cuánto te cuestan las llamadas sin contestar.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#14172A">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idG9wRmFjZSIgeDE9IjI1NiIgeTE9IjEwNiIgeDI9IjI1NiIgeTI9IjI1NiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN0JFOENDIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjRDhGN0VFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGVmdEZhY2UiIHgxPSIxMjYuMDk2MjUiIHkxPSIxODEuMCIgeDI9IjI1NiIgeTI9IjQwNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjREU5Q0JFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjRjVEMkUxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGRkNGNyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icmlnaHRGYWNlIiB4MT0iMjU2IiB5MT0iMjU2IiB4Mj0iMjg2IiB5Mj0iNDA2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGOEY0RkMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI0NSUiIHN0b3AtY29sb3I9IiNCNzlCRDYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODA2OUEwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJnbG93IiBjeD0iMjU2IiBjeT0iNDA2IiByPSIxNTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxwb2x5Z29uIHBvaW50cz0iMjU2LjAwLDEwNi4wMCAzODUuOTAsMTgxLjAwIDI1Ni4wMCwyNTYuMDAgMTI2LjEwLDE4MS4wMCIgZmlsbD0idXJsKCN0b3BGYWNlKSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTI2LjEwLDE4MS4wMCAyNTYuMDAsMjU2LjAwIDI1Ni4wMCw0MDYuMDAgMTI2LjEwLDMzMS4wMCIgZmlsbD0idXJsKCNsZWZ0RmFjZSkiLz4KICA8cG9seWdvbiBwb2ludHM9IjM4NS45MCwxODEuMDAgMzg1LjkwLDMzMS4wMCAyNTYuMDAsNDA2LjAwIDI1Ni4wMCwyNTYuMDAiIGZpbGw9InVybCgjcmlnaHRGYWNlKSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTI2LjEwLDE4MS4wMCAyNTYuMDAsMjU2LjAwIDI1Ni4wMCw0MDYuMDAgMTI2LjEwLDMzMS4wMCIgZmlsbD0idXJsKCNnbG93KSIgb3BhY2l0eT0iMC41Ii8+CiAgPHBvbHlnb24gcG9pbnRzPSIzODUuOTAsMTgxLjAwIDM4NS45MCwzMzEuMDAgMjU2LjAwLDQwNi4wMCAyNTYuMDAsMjU2LjAwIiBmaWxsPSJ1cmwoI2dsb3cpIiBvcGFjaXR5PSIwLjMiLz4KICA8cG9seWdvbiBwb2ludHM9IjI1Ni4wMCwxMDYuMDAgMzg1LjkwLDE4MS4wMCAzODUuOTAsMzMxLjAwIDI1Ni4wMCw0MDYuMDAgMTI2LjEwLDMzMS4wMCAxMjYuMTAsMTgxLjAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC45Ii8+Cjwvc3ZnPgo=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: the brand's pastel cube on deep night. Dark hero and calculator,
+   light reading sections between them, the form as the single destination. */
+:root {
+  --night: #14172A;
+  --night-2: #1D2140;
+  --night-line: #2E3358;
+  --paper: #F6F5FA;
+  --card: #FFFFFF;
+  --ink: #171A2E;
+  --muted: #5B6280;
+  --line: #DEDDEA;
+  --mint: #98EEDA;
+  --mint-deep: #0E7F6B;
+  --pink: #E7B7CE;
+  --lilac: #B79BDD;
+  --slate: #7288A1;
+  --missed: #C9443A;
+  --missed-bg: #FBE9E7;
+  --ok-bg: #E1F6F0;
+  --on-night: #E9EAF4;
+  --on-night-muted: #A6ABC8;
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --wrap: 1120px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+h1, h2 { font-family: var(--font-display); font-weight: 600; line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font: 700 1.12rem/1.25 var(--font-body); margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+img, svg { max-width: 100%; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: 20px; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 34em; }
+.eyebrow { font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mint-deep); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--mint); color: #0B2A26; text-decoration: none; font: 700 1rem var(--font-body); padding: 15px 24px; border: 0; border-radius: 999px; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; box-shadow: 0 10px 30px -12px rgba(152,238,218,.7); }
+.btn:hover { background: #B4F5E6; transform: translateY(-1px); }
+.btn.dark { background: var(--ink); color: #fff; box-shadow: 0 12px 28px -14px rgba(23,26,46,.7); }
+.btn.dark:hover { background: #262A4A; }
+.btn.ghost { background: transparent; color: var(--on-night); box-shadow: none; border: 1px solid var(--night-line); }
+.btn.ghost:hover { background: rgba(255,255,255,.06); }
+.btn:focus-visible, a:focus-visible, input:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #F3C89B; outline-offset: 3px; }
+.btn[disabled] { opacity: .6; cursor: progress; transform: none; }
+[hidden] { display: none !important; }
+
+/* Dark top: header + hero */
+.night { background: var(--night); color: var(--on-night); position: relative; overflow: hidden; isolation: isolate; }
+.night::before, .night::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; filter: blur(90px); opacity: .34; pointer-events: none; }
+.night::before { width: 560px; height: 560px; right: -120px; top: -160px; background: var(--lilac); }
+.night::after { width: 460px; height: 460px; right: 22%; bottom: -260px; background: var(--mint); opacity: .2; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
+.brand { display: inline-flex; line-height: 0; }
+.brand svg { height: 44px; width: auto; }
+.top .btn { padding: 11px 18px; font-size: .95rem; }
+.hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; padding-block: 44px 84px; }
+.hero-copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+.hero .eyebrow { color: var(--mint); }
+.hero h1 { color: #fff; }
+.hero h1 em { font-style: italic; color: var(--pink); }
+.hero .lede { color: var(--on-night-muted); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { list-style: none; margin: 6px 0 0; padding: 18px 0 0; border-top: 1px solid var(--night-line); display: flex; flex-wrap: wrap; gap: 14px 28px; width: 100%; font-size: .95rem; color: var(--on-night); }
+.facts li { display: flex; align-items: center; gap: 9px; }
+.facts svg { width: 20px; height: 20px; flex: none; color: var(--mint); }
+
+/* Phone illustration */
+.phone-stage { position: relative; display: flex; justify-content: center; }
+.hex { position: absolute; inset: -30px -10px auto auto; width: 300px; opacity: .5; z-index: -1; }
+.phone { width: min(330px, 100%); background: #0C0E1C; border: 1px solid #3A4070; border-radius: 40px; padding: 12px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 6px rgba(255,255,255,.03); }
+.screen { background: linear-gradient(180deg, #20244A 0%, #171A33 100%); border-radius: 30px; padding: 20px 18px 18px; display: flex; flex-direction: column; gap: 14px; }
+.notch { width: 84px; height: 6px; border-radius: 4px; background: #0C0E1C; align-self: center; margin-bottom: 4px; }
+.call-head { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(135deg, var(--mint), var(--lilac) 60%, var(--pink)); display: grid; place-items: center; flex: none; }
+.avatar svg { width: 24px; height: 24px; color: #14172A; }
+.call-head b { display: block; color: #fff; font-size: 1rem; line-height: 1.2; }
+.call-head span { font-size: .82rem; color: var(--mint); font-variant-numeric: tabular-nums; }
+.wave { display: flex; align-items: center; gap: 4px; height: 38px; padding: 0 4px; }
+.wave i { flex: 1; border-radius: 3px; background: linear-gradient(180deg, var(--mint), var(--lilac)); height: 30%; animation: wave 1.3s ease-in-out infinite; }
+.wave i:nth-child(3n) { animation-delay: -.3s; } .wave i:nth-child(3n+1) { animation-delay: -.7s; } .wave i:nth-child(4n) { animation-delay: -1s; } .wave i:nth-child(5n) { animation-delay: -.5s; }
+@keyframes wave { 0%, 100% { height: 22%; } 50% { height: 95%; } }
+.bubbles { display: flex; flex-direction: column; gap: 8px; font-size: .86rem; line-height: 1.35; }
+.bubbles p { padding: 9px 12px; border-radius: 14px; max-width: 88%; }
+.bubbles .them { background: #2B3060; color: #E3E5F5; border-bottom-left-radius: 4px; align-self: flex-start; }
+.bubbles .us { background: #E9FBF6; color: #10332D; border-bottom-right-radius: 4px; align-self: flex-end; }
+.booked { display: flex; align-items: center; gap: 10px; background: rgba(152,238,218,.12); border: 1px solid rgba(152,238,218,.4); border-radius: 14px; padding: 10px 12px; font-size: .86rem; color: #fff; }
+.booked svg { width: 22px; height: 22px; color: var(--mint); flex: none; }
+.booked small { display: block; color: var(--on-night-muted); font-size: .76rem; }
+.caption { font-size: .78rem; color: var(--on-night-muted); text-align: center; margin-top: 12px; }
+
+/* Sections */
+section.block { padding-block: 84px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.stack { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.stack ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--muted); }
+.stack li { padding-left: 26px; position: relative; }
+.stack li::before { content: ""; position: absolute; left: 0; top: .55em; width: 14px; height: 3px; border-radius: 2px; background: var(--missed); }
+
+.log { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 30px 60px -40px rgba(23,26,46,.5); }
+.log-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.log-title { font-weight: 700; font-size: .95rem; }
+.log-title small { display: block; font-weight: 500; color: var(--muted); font-size: .8rem; }
+.switch { display: inline-flex; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+.switch button { border: 0; background: transparent; color: var(--muted); font: 600 .82rem var(--font-body); padding: 7px 13px; border-radius: 999px; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.log ul { list-style: none; margin: 0; padding: 0; }
+.log li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.log li:last-child { border-bottom: 0; padding-bottom: 2px; }
+.log time { font-variant-numeric: tabular-nums; font-weight: 600; font-size: .92rem; padding-top: 2px; }
+.log .why { font-size: .88rem; color: var(--muted); }
+.tag { display: inline-block; font-weight: 700; font-size: .8rem; padding: 3px 9px; border-radius: 6px; margin-bottom: 3px; }
+.tag.missed { background: var(--missed-bg); color: var(--missed); }
+.tag.done { background: var(--ok-bg); color: var(--mint-deep); }
+.log[data-mode="sin"] .con, .log[data-mode="con"] .sin { display: none; }
+.log-foot { margin-top: 12px; font-size: .92rem; font-weight: 700; }
+.log[data-mode="sin"] .log-foot { color: var(--missed); }
+.log[data-mode="con"] .log-foot { color: var(--mint-deep); }
+
+/* Calculator */
+.band { padding-block: 84px; }
+.band h2 { color: #fff; }
+.band .lede { color: var(--on-night-muted); margin-top: 14px; }
+.band .eyebrow { color: var(--mint); display: block; margin-bottom: 12px; }
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-top: 40px; align-items: start; }
+.fields { display: flex; flex-direction: column; gap: 22px; }
+.field label { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; font-size: .98rem; margin-bottom: 8px; }
+.field output { font-variant-numeric: tabular-nums; color: #fff; font-weight: 700; white-space: nowrap; }
+input[type="range"] { width: 100%; accent-color: var(--mint); height: 28px; margin: 0; }
+.result { background: rgba(255,255,255,.05); border: 1px solid var(--night-line); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; backdrop-filter: blur(6px); }
+.result .label { font-size: .85rem; color: var(--on-night-muted); font-weight: 600; }
+.result .big { font: 600 clamp(3rem, 8vw, 4.6rem)/1 var(--font-display); color: #fff; font-variant-numeric: lining-nums tabular-nums; }
+.result .big small { font: 500 1rem var(--font-body); color: var(--on-night-muted); }
+.result dl { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; margin: 0; padding-top: 16px; border-top: 1px solid var(--night-line); font-size: .95rem; }
+.result dt { color: var(--on-night-muted); }
+.result dd { margin: 0; font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; text-align: right; }
+.result .fine { font-size: .82rem; color: #8A90B2; }
+
+/* Steps */
+.block-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; max-width: 640px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: paso; }
+.steps li { counter-increment: paso; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+.steps .ico { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 6px; }
+.steps li:nth-child(1) .ico { background: #E1F6F0; color: var(--mint-deep); }
+.steps li:nth-child(2) .ico { background: #F6E4EC; color: #A2466F; }
+.steps li:nth-child(3) .ico { background: #ECE4F6; color: #6B4BA3; }
+.steps .ico svg { width: 28px; height: 28px; }
+.steps li::before { content: "Paso " counter(paso); font-weight: 700; font-size: .78rem; color: var(--slate); text-transform: uppercase; letter-spacing: .1em; order: -1; }
+.steps p { color: var(--muted); }
+
+/* Agenda illustration + does / doesn't */
+.agenda { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 30px 60px -40px rgba(23,26,46,.5); }
+.agenda-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.agenda-head b { font-size: .95rem; }
+.agenda-head span { font-size: .8rem; color: var(--muted); }
+.week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.day { display: flex; flex-direction: column; gap: 6px; }
+.day > span { font-size: .74rem; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: .08em; text-align: center; padding-bottom: 4px; }
+.slot { border-radius: 8px; padding: 7px 8px; font-size: .72rem; line-height: 1.25; background: var(--paper); color: var(--muted); min-height: 46px; }
+.slot b { display: block; color: var(--ink); font-size: .74rem; font-variant-numeric: tabular-nums; }
+.slot.ai { background: #E1F6F0; color: #0B5C4E; outline: 1px solid #A9E6D8; }
+.slot.ai b { color: #0B5C4E; }
+.slot.empty { background: transparent; outline: 1px dashed var(--line); }
+.agenda-key { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 14px; font-size: .78rem; color: var(--muted); }
+.agenda-key i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; background: var(--paper); outline: 1px solid var(--line); }
+.agenda-key i.ai { background: #BFEFE3; outline-color: #A9E6D8; }
+.does { display: flex; flex-direction: column; gap: 26px; }
+.does h3 { margin-bottom: 12px; }
+.does ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.does li { padding-left: 30px; position: relative; }
+.does li svg { position: absolute; left: 0; top: 3px; width: 20px; height: 20px; }
+.does .yes svg { color: var(--mint-deep); }
+.does .no svg { color: var(--missed); }
+.does .no li { color: var(--muted); }
+
+.faq { max-width: 780px; display: flex; flex-direction: column; }
+.faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+.faq summary { font-weight: 700; cursor: pointer; font-size: 1.08rem; }
+.faq p { color: var(--muted); margin-top: 10px; max-width: 62ch; }
+
+/* Form */
+.cta { background: linear-gradient(160deg, #EAF8F4 0%, #F3ECF8 55%, #FBEEF3 100%); border-top: 1px solid var(--line); padding-block: 84px 92px; }
+.cta-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+.cta-copy { display: flex; flex-direction: column; gap: 16px; }
+.cta-copy ul { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.cta-copy li { padding-left: 30px; position: relative; }
+.cta-copy li svg { position: absolute; left: 0; top: 3px; width: 20px; height: 20px; color: var(--mint-deep); }
+form { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; box-shadow: 0 40px 70px -50px rgba(23,26,46,.6); }
+.f { display: flex; flex-direction: column; gap: 6px; }
+.f.full { grid-column: 1 / -1; }
+.f label { font-weight: 600; font-size: .92rem; }
+.f input { font: 500 1rem var(--font-body); color: var(--ink); padding: 13px 14px; border: 1px solid #C4C5D8; border-radius: 12px; background: #fff; width: 100%; }
+.consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-size: .88rem; color: var(--muted); }
+.consent input { margin-top: 4px; width: 18px; height: 18px; flex: none; accent-color: var(--mint-deep); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+form .btn { grid-column: 1 / -1; width: 100%; padding: 17px; font-size: 1.05rem; }
+.msg { grid-column: 1 / -1; font-size: .92rem; font-weight: 600; color: var(--missed); min-height: 1.2em; }
+.thanks { background: var(--card); border: 1px solid #A9E6D8; border-radius: 24px; padding: 34px; display: flex; flex-direction: column; gap: 12px; }
+.thanks h3 { font: 600 2rem/1.1 var(--font-display); }
+
+footer { background: var(--night); color: var(--on-night-muted); padding-block: 44px 96px; font-size: .84rem; }
+footer .wrap { display: grid; grid-template-columns: 130px 1fr; gap: 32px; align-items: start; }
+footer img { width: 130px; height: auto; }
+footer p + p { margin-top: 10px; }
+footer strong { color: var(--on-night); }
+
+.sticky { display: none; }
+@media (max-width: 900px) {
+  .hero, .split, .calc, .cta-grid { grid-template-columns: 1fr; gap: 36px; }
+  .steps { grid-template-columns: 1fr; }
+  .hero { padding-block: 24px 56px; }
+  section.block, .band, .cta { padding-block: 56px; }
+  .split .order-first { order: -1; }
+  .sticky { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(20,23,42,.94); border-top: 1px solid var(--night-line); }
+  .sticky .btn { width: 100%; padding: 13px; }
+}
+@media (max-width: 520px) {
+  form { grid-template-columns: 1fr; padding: 20px; }
+  .top .btn { display: none; }
+  .brand svg { height: 38px; }
+  footer .wrap { grid-template-columns: 1fr; }
+  .slot { font-size: .64rem; padding: 6px 5px; }
+  .slot b { font-size: .66rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  .wave i { animation: none; height: 55%; }
+  .wave i:nth-child(odd) { height: 85%; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5" stroke-width="1.8"/><path d="M7.5 12.4l3 3 6-6.6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5" stroke-width="1.8"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></symbol>
+  <symbol id="i-calls" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l1.6 4-2 1.4a11 11 0 0 0 5 5l1.4-2 4 1.6v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 6.200 2 2 0 0 1 5 4z"/><path d="M15 4.500a5 5 0 0 1 4.500 4.500"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.500 10h17M8 3v4M16 3v4M9 15l2.200 2.200 4-4.400"/></symbol>
+  <symbol id="i-setup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 4.500h6v2.500H9zM9 12h6M9 16h4"/></symbol>
+  <symbol id="i-voice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10v4M8 6.500v11M12 3.500v17M16 7.500v9M20 10.500v3"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.500h16M4 12h10M4 17.500h7"/><circle cx="18" cy="16" r="3"/><path d="M20.200 18.200l1.800 1.800"/></symbol>
+</svg>
+
+<div class="night">
+  <header class="wrap top">
+    <a class="brand" href="#inicio" aria-label="AI Evolve, inicio">
+      <svg viewBox="0 0 1530 360" role="img" aria-label="AI Evolve" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="topFace" x1="256" y1="131.2" x2="256" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#98EEDA"/>
+      <stop offset="55%" stop-color="#E2FAF3"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+<linearGradient id="leftFace" x1="161.77648" y1="185.6" x2="256" y2="348.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E7B7CE"/>
+      <stop offset="55%" stop-color="#F8DEE7"/>
+      <stop offset="100%" stop-color="#FFFEFA"/>
+    </linearGradient>
+<linearGradient id="rightFace" x1="256" y1="240" x2="296" y2="348.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FCFBFF"/>
+      <stop offset="50%" stop-color="#C7B4DF"/>
+      <stop offset="100%" stop-color="#9A87B8"/>
+    </linearGradient>
+<linearGradient id="bandLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3C89B" stop-opacity="0"/>
+      <stop offset="28%" stop-color="#F3C89B" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#F3C89B" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#F3C89B" stop-opacity="0"/>
+    </linearGradient>
+<linearGradient id="bandRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B79BDD" stop-opacity="0"/>
+      <stop offset="28%" stop-color="#B79BDD" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#B79BDD" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#B79BDD" stop-opacity="0"/>
+    </linearGradient>
+<radialGradient id="glow" cx="256" cy="348.8" r="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+</defs><g transform="translate(-100,-60)"><polygon points="256.00,70.00 403.22,155.00 403.22,325.00 256.00,410.00 108.78,325.00 108.78,155.00" fill="none" stroke="#DEE0EA" stroke-width="3.0" opacity="0.95"/>
+<polyline points="256.00,70.00 256.00,240.00 256.00,410.00" fill="none" stroke="#DEE0EA" stroke-width="3.0" opacity="0.95"/>
+<polyline points="108.78,155.00 256.00,240.00 403.22,155.00" fill="none" stroke="#DEE0EA" stroke-width="3.0" opacity="0.95"/>
+<polygon points="256.00,131.20 350.22,185.60 256.00,240.00 161.78,185.60" fill="url(#topFace)"/>
+<polygon points="161.78,185.60 256.00,240.00 256.00,348.80 161.78,294.40" fill="url(#leftFace)"/>
+<polygon points="350.22,185.60 350.22,294.40 256.00,348.80 256.00,240.00" fill="url(#rightFace)"/>
+<polygon points="161.78,185.60 256.00,240.00 256.00,348.80 161.78,294.40" fill="url(#glow)" opacity="0.55"/>
+<polygon points="350.22,185.60 350.22,294.40 256.00,348.80 256.00,240.00" fill="url(#glow)" opacity="0.35"/></g><g transform="translate(352,240) scale(4)" fill="#7288A1">
+<path d="M212 339 227 358H433L440 339ZM694 12Q698 12 698.0 6.0Q698 0 694 0Q666 0 636.5 2.0Q607 4 580 4Q549 4 526.5 2.0Q504 0 477 0Q473 0 473.0 6.0Q473 12 477 12Q533 12 547.5 27.0Q562 42 543 84L317 570L336 587L143 123Q118 62 139.0 37.0Q160 12 228 12Q233 12 233.0 6.0Q233 0 228 0Q198 0 173.0 2.0Q148 4 110 4Q75 4 53.5 2.0Q32 0 2 0Q-2 0 -2.0 6.0Q-2 12 2 12Q29 12 49.0 22.0Q69 32 86.5 58.0Q104 84 124 132L333 635Q335 638 339.5 638.0Q344 638 345 635L577 137Q600 87 618.0 59.5Q636 32 654.0 22.0Q672 12 694 12Z" transform="translate(0.000,0) scale(0.048000,-0.048000)"/>
+<path d="M192 81Q192 52 198.0 37.0Q204 22 223.5 17.0Q243 12 281 12Q283 12 283.0 6.0Q283 0 281 0Q257 0 228.0 1.0Q199 2 164 2Q131 2 101.5 1.0Q72 0 48 0Q45 0 45.0 6.0Q45 12 48 12Q86 12 105.5 17.0Q125 22 131.5 37.0Q138 52 138 81V544Q138 573 131.5 587.5Q125 602 105.5 607.5Q86 613 48 613Q45 613 45.0 619.0Q45 625 48 625Q72 625 101.5 623.5Q131 622 164 622Q199 622 228.5 623.5Q258 625 281 625Q283 625 283.0 619.0Q283 613 281 613Q243 613 224.0 607.0Q205 601 198.5 586.0Q192 571 192 542Z" transform="translate(43.004,0) scale(0.048000,-0.048000)"/>
+<path d="M457 0H44Q42 0 42.0 6.0Q42 12 44 12Q82 12 101.0 17.0Q120 22 126.5 37.0Q133 52 133 81V544Q133 573 126.5 587.5Q120 602 101.0 607.5Q82 613 44 613Q42 613 42.0 619.0Q42 625 44 625H440Q449 625 449 616L451 495Q451 492 445.5 492.0Q440 492 440 495Q440 547 413.0 576.5Q386 606 342 606H273Q236 606 217.5 601.0Q199 596 192.5 581.5Q186 567 186 538V85Q186 57 192.5 43.0Q199 29 217.5 24.0Q236 19 273 19H365Q405 19 434.0 54.0Q463 89 470 146Q470 149 476.0 148.5Q482 148 482 145Q478 119 475.5 82.5Q473 46 473 15Q473 0 457 0ZM401 235Q401 280 382.0 298.0Q363 316 315 316H161V335H318Q364 335 382.0 350.5Q400 366 400 404Q400 406 406.0 406.0Q412 406 412 404Q412 375 411.5 359.0Q411 343 411 325Q411 303 412.0 281.5Q413 260 413 235Q413 233 407.0 233.0Q401 233 401 235Z" transform="translate(68.344,0) scale(0.048000,-0.048000)"/>
+<path d="M670 625Q673 625 673.0 619.0Q673 613 670 613Q639 613 615.5 600.0Q592 587 574 544L354 1Q353 -3 343.5 -3.0Q334 -3 332 1L85 542Q68 581 49.0 597.0Q30 613 -2 613Q-5 613 -5.0 619.0Q-5 625 -2 625Q12 625 26.5 624.0Q41 623 55.5 622.5Q70 622 83 622Q107 622 127.0 622.5Q147 623 163.5 624.0Q180 625 195 625Q198 625 198.0 619.0Q198 613 195 613Q157 613 141.0 600.5Q125 588 142 552L366 57L339 20L553 550Q567 585 552.0 599.0Q537 613 481 613Q478 613 478.0 619.0Q478 625 481 625Q504 625 525.5 623.5Q547 622 581 622Q610 622 627.5 623.5Q645 625 670 625Z" transform="translate(103.428,0) scale(0.048000,-0.048000)"/>
+<path d="M366 -12Q294 -12 235.5 13.5Q177 39 135.5 84.0Q94 129 71.5 187.5Q49 246 49 312Q49 393 80.5 454.0Q112 515 164.0 555.5Q216 596 278.0 616.0Q340 636 401 636Q475 636 533.5 609.5Q592 583 633.0 538.0Q674 493 695.5 436.0Q717 379 717 319Q717 249 689.0 189.0Q661 129 612.5 84.0Q564 39 500.5 13.5Q437 -12 366 -12ZM402 8Q472 8 529.0 40.5Q586 73 619.5 136.5Q653 200 653 291Q653 386 616.5 458.5Q580 531 514.0 572.5Q448 614 359 614Q243 614 178.0 542.0Q113 470 113 346Q113 276 133.5 214.5Q154 153 192.5 106.5Q231 60 284.0 34.0Q337 8 402 8Z" transform="translate(144.944,0) scale(0.048000,-0.048000)"/>
+<path d="M178 543V85Q178 57 184.5 43.0Q191 29 209.5 24.0Q228 19 264 19H392Q445 19 473.0 54.0Q501 89 509 146Q509 149 514.5 148.5Q520 148 520 145Q517 119 514.0 82.5Q511 46 511 15Q511 0 496 0H36Q34 0 34.0 6.0Q34 12 36 12Q74 12 93.0 17.0Q112 22 118.5 37.0Q125 52 125 81V544Q125 573 118.5 587.5Q112 602 93.0 607.5Q74 613 36 613Q34 613 34.0 619.0Q34 625 36 625Q60 625 89.5 623.5Q119 622 151 622Q185 622 214.5 623.5Q244 625 267 625Q269 625 269.0 619.0Q269 613 267 613Q229 613 210.0 607.5Q191 602 184.5 587.0Q178 572 178 543Z" transform="translate(191.212,0) scale(0.048000,-0.048000)"/>
+<path d="M670 625Q673 625 673.0 619.0Q673 613 670 613Q639 613 615.5 600.0Q592 587 574 544L354 1Q353 -3 343.5 -3.0Q334 -3 332 1L85 542Q68 581 49.0 597.0Q30 613 -2 613Q-5 613 -5.0 619.0Q-5 625 -2 625Q12 625 26.5 624.0Q41 623 55.5 622.5Q70 622 83 622Q107 622 127.0 622.5Q147 623 163.5 624.0Q180 625 195 625Q198 625 198.0 619.0Q198 613 195 613Q157 613 141.0 600.5Q125 588 142 552L366 57L339 20L553 550Q567 585 552.0 599.0Q537 613 481 613Q478 613 478.0 619.0Q478 625 481 625Q504 625 525.5 623.5Q547 622 581 622Q610 622 627.5 623.5Q645 625 670 625Z" transform="translate(226.152,0) scale(0.048000,-0.048000)"/>
+<path d="M457 0H44Q42 0 42.0 6.0Q42 12 44 12Q82 12 101.0 17.0Q120 22 126.5 37.0Q133 52 133 81V544Q133 573 126.5 587.5Q120 602 101.0 607.5Q82 613 44 613Q42 613 42.0 619.0Q42 625 44 625H440Q449 625 449 616L451 495Q451 492 445.5 492.0Q440 492 440 495Q440 547 413.0 576.5Q386 606 342 606H273Q236 606 217.5 601.0Q199 596 192.5 581.5Q186 567 186 538V85Q186 57 192.5 43.0Q199 29 217.5 24.0Q236 19 273 19H365Q405 19 434.0 54.0Q463 89 470 146Q470 149 476.0 148.5Q482 148 482 145Q478 119 475.5 82.5Q473 46 473 15Q473 0 457 0ZM401 235Q401 280 382.0 298.0Q363 316 315 316H161V335H318Q364 335 382.0 350.5Q400 366 400 404Q400 406 406.0 406.0Q412 406 412 404Q412 375 411.5 359.0Q411 343 411 325Q411 303 412.0 281.5Q413 260 413 235Q413 233 407.0 233.0Q401 233 401 235Z" transform="translate(267.668,0) scale(0.048000,-0.048000)"/>
+</g></svg>
+    </a>
+    <a class="btn" href="#demo">Pedir demo</a>
+  </header>
+
+  <div class="wrap hero" id="inicio">
+    <div class="hero-copy">
+      <span class="eyebrow">Asistente de voz con IA para clínicas dentales</span>
+      <h1>La llamada que tu clínica no coge acaba en <em>la clínica de al lado.</em></h1>
+      <p class="lede">Tu teléfono contestado a cualquier hora, las dudas habituales resueltas y la cita agendada. Recepción sigue con los pacientes que tiene delante.</p>
+      <div class="cta-row">
+        <a class="btn" href="#calculadora">Calcular lo que pierdo</a>
+        <a class="btn ghost" href="#demo">Pedir demo gratuita</a>
+      </div>
+      <ul class="facts">
+        <li><svg><use href="#i-clock"/></svg>Contesta a cualquier hora</li>
+        <li><svg><use href="#i-calls"/></svg>Varias llamadas a la vez</li>
+        <li><svg><use href="#i-cal"/></svg>Deja la cita agendada</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="phone-stage">
+        <svg class="hex" viewBox="100 60 312 360" fill="none" stroke="#B79BDD" stroke-width="1.2" aria-hidden="true"><polygon points="256,70 403.22,155 403.22,325 256,410 108.78,325 108.78,155"/><path d="M256 70v340M108.780 155L256 240l147.220-85"/></svg>
+        <div class="phone" role="img" aria-label="Ilustración: el asistente atiende una llamada y agenda una cita">
+          <div class="screen">
+            <div class="notch"></div>
+            <div class="call-head">
+              <div class="avatar"><svg><use href="#i-voice"/></svg></div>
+              <div><b>Asistente de la clínica</b><span>En llamada · 00:42</span></div>
+            </div>
+            <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="bubbles">
+              <p class="them">Hola, quería pedir cita para una limpieza.</p>
+              <p class="us">Claro. Tengo hueco el jueves a las 10:30 o el viernes a las 17:00. ¿Cuál te viene mejor?</p>
+              <p class="them">El jueves por la mañana.</p>
+            </div>
+            <div class="booked"><svg><use href="#i-cal"/></svg><div><b>Cita agendada</b><small>Limpieza · jueves 10:30</small></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="caption">Conversación de ejemplo</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="block">
+    <div class="wrap split">
+      <div class="stack">
+        <span class="eyebrow">El problema</span>
+        <h2>Los pacientes se pierden sin que nadie lo note</h2>
+        <p class="lede">Nadie apunta las llamadas que no se cogen. Pero pasan todos los días, y casi siempre por lo mismo:</p>
+        <ul>
+          <li>Llaman antes de abrir o después de cerrar.</li>
+          <li>Recepción está atendiendo a quien tiene delante.</li>
+          <li>La línea está ocupada con otra llamada.</li>
+        </ul>
+      </div>
+
+      <div class="log" id="log" data-mode="sin" aria-label="Ejemplo del registro de llamadas de un día">
+        <div class="log-head">
+          <div class="log-title">Registro de llamadas <small>Ejemplo de un martes cualquiera</small></div>
+          <div class="switch" role="group" aria-label="Comparar">
+            <button type="button" id="modo-sin" aria-pressed="true">Hoy</button>
+            <button type="button" id="modo-con" aria-pressed="false">Con asistente</button>
+          </div>
+        </div>
+        <ul>
+          <li><time>08:41</time><div>
+            <div class="sin"><span class="tag missed">Perdida</span><div class="why">La clínica abre a las 9:00</div></div>
+            <div class="con"><span class="tag done">Atendida</span><div class="why">Revisión agendada, jueves 10:30</div></div>
+          </div></li>
+          <li><time>11:17</time><div>
+            <div class="sin"><span class="tag missed">Perdida</span><div class="why">Recepción estaba cobrando a un paciente</div></div>
+            <div class="con"><span class="tag done">Atendida</span><div class="why">Primera visita agendada, lunes 17:00</div></div>
+          </div></li>
+          <li><time>14:26</time><div>
+            <div class="sin"><span class="tag missed">Perdida</span><div class="why">Cerrado a mediodía</div></div>
+            <div class="con"><span class="tag done">Atendida</span><div class="why">Informó de horario y dirección</div></div>
+          </div></li>
+          <li><time>20:52</time><div>
+            <div class="sin"><span class="tag missed">Perdida</span><div class="why">Fuera de horario</div></div>
+            <div class="con"><span class="tag done">Atendida</span><div class="why">Limpieza agendada, miércoles 9:15</div></div>
+          </div></li>
+        </ul>
+        <p class="log-foot"><span class="sin">4 llamadas, 0 citas.</span><span class="con">4 llamadas, 3 citas agendadas.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="night band" id="calculadora">
+    <div class="wrap">
+      <span class="eyebrow">Calculadora</span>
+      <h2>¿Cuánto te cuestan las llamadas sin contestar?</h2>
+      <p class="lede">Mueve los controles con los números de tu clínica. La cuenta es tuya, no nuestra.</p>
+
+      <div class="calc">
+        <div class="fields">
+          <div class="field">
+            <label for="c-llamadas">Llamadas que no cogéis al día <output id="o-llamadas" for="c-llamadas">6</output></label>
+            <input type="range" id="c-llamadas" min="1" max="30" step="1" value="6">
+          </div>
+          <div class="field">
+            <label for="c-nuevos">De esas, cuántas eran para pedir cita <output id="o-nuevos" for="c-nuevos">30 %</output></label>
+            <input type="range" id="c-nuevos" min="5" max="100" step="5" value="30">
+          </div>
+          <div class="field">
+            <label for="c-vuelven">Cuántos no vuelven a llamar <output id="o-vuelven" for="c-vuelven">50 %</output></label>
+            <input type="range" id="c-vuelven" min="10" max="100" step="5" value="50">
+          </div>
+          <div class="field">
+            <label for="c-valor">Valor medio de esa cita <output id="o-valor" for="c-valor">80 €</output></label>
+            <input type="range" id="c-valor" min="30" max="600" step="10" value="80">
+          </div>
+          <div class="field">
+            <label for="c-dias">Días que abrís al mes <output id="o-dias" for="c-dias">22</output></label>
+            <input type="range" id="c-dias" min="15" max="30" step="1" value="22">
+          </div>
+        </div>
+
+        <div class="result" aria-live="polite">
+          <div>
+            <div class="label">Lo que se va por el teléfono</div>
+            <div class="big"><span id="r-euros">1.584 €</span> <small>al mes</small></div>
+          </div>
+          <dl>
+            <dt>Citas que se pierden al mes</dt><dd id="r-citas">20</dd>
+            <dt>Al cabo de un año</dt><dd id="r-anual">19.008 €</dd>
+          </dl>
+          <p class="fine">Estimación hecha solo con los datos que has puesto. No cuenta los tratamientos posteriores de esos pacientes.</p>
+          <a class="btn" href="#demo" id="ir-demo">Quiero recuperar esas llamadas</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2>En marcha sin cambiar tu forma de trabajar</h2>
+      </div>
+      <ol class="steps">
+        <li><div class="ico"><svg><use href="#i-setup"/></svg></div><h3>Lo preparamos con los datos de tu clínica</h3><p>Horarios, tratamientos, precios que quieras dar por teléfono y las preguntas que más os hacen.</p></li>
+        <li><div class="ico"><svg><use href="#i-voice"/></svg></div><h3>Contesta y agenda</h3><p>Atiende la llamada, responde lo habitual y deja la cita apuntada en vuestra agenda.</p></li>
+        <li><div class="ico"><svg><use href="#i-eye"/></svg></div><h3>Tú ves cada llamada</h3><p>Sabes quién llamó, para qué y qué cita se dio. Lo ajustamos según lo que vaya saliendo.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap split">
+      <div class="agenda order-first" role="img" aria-label="Ilustración: agenda semanal con citas agendadas por el asistente">
+        <div class="agenda-head"><b>Agenda de la semana</b><span>Ejemplo</span></div>
+        <div class="week">
+          <div class="day"><span>Lun</span><div class="slot"><b>9:30</b>Revisión</div><div class="slot empty"></div><div class="slot ai"><b>17:00</b>Primera visita</div></div>
+          <div class="day"><span>Mar</span><div class="slot empty"></div><div class="slot"><b>12:00</b>Ortodoncia</div><div class="slot"><b>18:15</b>Empaste</div></div>
+          <div class="day"><span>Mié</span><div class="slot ai"><b>9:15</b>Limpieza</div><div class="slot"><b>11:30</b>Revisión</div><div class="slot empty"></div></div>
+          <div class="day"><span>Jue</span><div class="slot ai"><b>10:30</b>Revisión</div><div class="slot empty"></div><div class="slot"><b>16:45</b>Implante</div></div>
+          <div class="day"><span>Vie</span><div class="slot"><b>9:00</b>Limpieza</div><div class="slot ai"><b>13:00</b>Urgencia</div><div class="slot empty"></div></div>
+        </div>
+        <div class="agenda-key"><span><i class="ai"></i>Agendada por el asistente</span><span><i></i>Agendada por recepción</span></div>
+      </div>
+
+      <div class="does">
+        <div class="yes">
+          <h2 style="margin-bottom:18px">Hace lo que le toca. Nada más.</h2>
+          <h3>Lo que hace</h3>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Contesta a cualquier hora, también fines de semana y festivos.</li>
+            <li><svg><use href="#i-check"/></svg>Atiende varias llamadas a la vez: nadie escucha comunicando.</li>
+            <li><svg><use href="#i-check"/></svg>Agenda citas y responde a horarios, dirección y dudas frecuentes.</li>
+            <li><svg><use href="#i-check"/></svg>Deja constancia de cada llamada para que nada se quede sin devolver.</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>Lo que no hace</h3>
+          <ul>
+            <li><svg><use href="#i-x"/></svg>No da diagnósticos ni consejos clínicos.</li>
+            <li><svg><use href="#i-x"/></svg>No sustituye a tu recepción: le quita el teléfono de encima.</li>
+            <li><svg><use href="#i-x"/></svg>No improvisa: si no sabe algo, toma nota para que la clínica devuelva la llamada.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="block-head"><span class="eyebrow">Dudas</span><h2>Preguntas habituales</h2></div>
+      <div class="faq">
+        <details>
+          <summary>¿Suena a robot?</summary>
+          <p>Lo mejor es que lo juzgues tú. En la demo lo escuchas atender una llamada como si fuera de tu clínica.</p>
+        </details>
+        <details>
+          <summary>¿Y si el paciente quiere hablar con una persona?</summary>
+          <p>El asistente toma sus datos y el motivo, y la clínica le devuelve la llamada. Vosotros decidís en qué casos debe hacerlo siempre.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto cuesta?</summary>
+          <p>Hay un pago de instalación y una cuota mensual de mantenimiento. La cifra depende de cómo trabaje tu clínica, así que te damos un precio cerrado después de la demo.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa en la demo?</summary>
+          <p>Son 15 minutos por teléfono o videollamada. Te enseñamos el asistente, vemos cuántas llamadas se os escapan y te decimos con claridad si te compensa o no.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta" id="demo">
+    <div class="wrap cta-grid">
+      <div class="cta-copy">
+        <span class="eyebrow">Demo gratuita</span>
+        <h2>Escúchalo atender una llamada de tu clínica</h2>
+        <p class="lede">Déjanos tus datos y te llamamos en un día laborable para fijar la hora.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>15 minutos, sin compromiso.</li>
+          <li><svg><use href="#i-check"/></svg>Escuchas al asistente en directo.</li>
+          <li><svg><use href="#i-check"/></svg>Sales con el precio y los pasos claros.</li>
+        </ul>
+      </div>
+
+      <div>
+        <form id="form" novalidate>
+          <div class="f">
+            <label for="f-nombre">Tu nombre</label>
+            <input type="text" id="f-nombre" name="nombre" autocomplete="name" maxlength="80" required>
+          </div>
+          <div class="f">
+            <label for="f-clinica">Nombre de la clínica</label>
+            <input type="text" id="f-clinica" name="clinica" autocomplete="organization" maxlength="120" required>
+          </div>
+          <div class="f">
+            <label for="f-telefono">Teléfono</label>
+            <input type="tel" id="f-telefono" name="telefono" autocomplete="tel" maxlength="20" inputmode="tel" required>
+          </div>
+          <div class="f">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" autocomplete="email" maxlength="160" required>
+          </div>
+          <div class="f full">
+            <label for="f-perdidas">Llamadas que se os escapan al día (aprox.)</label>
+            <input type="number" id="f-perdidas" name="perdidas" min="0" max="500" inputmode="numeric" placeholder="Opcional">
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-web">No rellenes este campo</label>
+            <input type="text" id="f-web" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <label class="consent" for="f-consent">
+            <input type="checkbox" id="f-consent" name="consent" required>
+            <span>Acepto que AI Evolve use estos datos para contactarme sobre la demo, según la <a href="#privacidad">información de privacidad</a>.</span>
+          </label>
+          <p class="msg" id="msg" role="alert"></p>
+          <button class="btn dark" type="submit" id="enviar">Pedir demo gratuita</button>
+        </form>
+
+        <div class="thanks" id="gracias" hidden tabindex="-1">
+          <h3>Recibido, <span id="g-nombre"></span>.</h3>
+          <p>Te llamamos en un día laborable al <strong id="g-tel"></strong> para fijar la hora de la demo.</p>
+          <p>Si prefieres otro horario, dínoslo cuando te llamemos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="privacidad">
+  <div class="wrap">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTYwIj4KCjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InRvcEZhY2UiIHgxPSIyNTYiIHkxPSIxMzEuMiIgeDI9IjI1NiIgeTI9IjI0MCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjOThFRURBIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjRTJGQUYzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJsZWZ0RmFjZSIgeDE9IjE2MS43NzY0OCIgeTE9IjE4NS42IiB4Mj0iMjU2IiB5Mj0iMzQ4LjgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0U3QjdDRSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iI0Y4REVFNyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNGRkZFRkEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icmlnaHRGYWNlIiB4MT0iMjU2IiB5MT0iMjQwIiB4Mj0iMjk2IiB5Mj0iMzQ4LjgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZDRkJGRiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI0M3QjRERiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5QTg3QjgiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0iYmFuZExlZnQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0YzQzg5QiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMjglIiBzdG9wLWNvbG9yPSIjRjNDODlCIiBzdG9wLW9wYWNpdHk9IjAuNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iI0YzQzg5QiIgc3RvcC1vcGFjaXR5PSIwLjIyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0YzQzg5QiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9ImJhbmRSaWdodCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjQjc5QkREIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIyOCUiIHN0b3AtY29sb3I9IiNCNzlCREQiIHN0b3Atb3BhY2l0eT0iMC41Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjQjc5QkREIiBzdG9wLW9wYWNpdHk9IjAuMjIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQjc5QkREIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CjxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyIgY3g9IjI1NiIgY3k9IjM0OC44IiByPSI5MCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9IjAuOTUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3QgeD0iOTEuNzgiIHk9IjAiIHdpZHRoPSIzNCIgaGVpZ2h0PSI1MTIiIGZpbGw9InVybCgjYmFuZExlZnQpIi8+CjxyZWN0IHg9IjM4Ni4yMiIgeT0iMCIgd2lkdGg9IjM0IiBoZWlnaHQ9IjUxMiIgZmlsbD0idXJsKCNiYW5kUmlnaHQpIi8+Cjxwb2x5Z29uIHBvaW50cz0iMjU2LjAwLDcwLjAwIDQwMy4yMiwxNTUuMDAgNDAzLjIyLDMyNS4wMCAyNTYuMDAsNDEwLjAwIDEwOC43OCwzMjUuMDAgMTA4Ljc4LDE1NS4wMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjREVFMEVBIiBzdHJva2Utd2lkdGg9IjMuMCIgb3BhY2l0eT0iMC45NSIvPgo8cG9seWxpbmUgcG9pbnRzPSIyNTYuMDAsNzAuMDAgMjU2LjAwLDI0MC4wMCAyNTYuMDAsNDEwLjAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNERUUwRUEiIHN0cm9rZS13aWR0aD0iMy4wIiBvcGFjaXR5PSIwLjk1Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjEwOC43OCwxNTUuMDAgMjU2LjAwLDI0MC4wMCA0MDMuMjIsMTU1LjAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNERUUwRUEiIHN0cm9rZS13aWR0aD0iMy4wIiBvcGFjaXR5PSIwLjk1Ii8+Cjxwb2x5Z29uIHBvaW50cz0iMjU2LjAwLDEzMS4yMCAzNTAuMjIsMTg1LjYwIDI1Ni4wMCwyNDAuMDAgMTYxLjc4LDE4NS42MCIgZmlsbD0idXJsKCN0b3BGYWNlKSIvPgo8cG9seWdvbiBwb2ludHM9IjE2MS43OCwxODUuNjAgMjU2LjAwLDI0MC4wMCAyNTYuMDAsMzQ4LjgwIDE2MS43OCwyOTQuNDAiIGZpbGw9InVybCgjbGVmdEZhY2UpIi8+Cjxwb2x5Z29uIHBvaW50cz0iMzUwLjIyLDE4NS42MCAzNTAuMjIsMjk0LjQwIDI1Ni4wMCwzNDguODAgMjU2LjAwLDI0MC4wMCIgZmlsbD0idXJsKCNyaWdodEZhY2UpIi8+Cjxwb2x5Z29uIHBvaW50cz0iMTYxLjc4LDE4NS42MCAyNTYuMDAsMjQwLjAwIDI1Ni4wMCwzNDguODAgMTYxLjc4LDI5NC40MCIgZmlsbD0idXJsKCNnbG93KSIgb3BhY2l0eT0iMC41NSIvPgo8cG9seWdvbiBwb2ludHM9IjM1MC4yMiwxODUuNjAgMzUwLjIyLDI5NC40MCAyNTYuMDAsMzQ4LjgwIDI1Ni4wMCwyNDAuMDAiIGZpbGw9InVybCgjZ2xvdykiIG9wYWNpdHk9IjAuMzUiLz4KCjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwOS4zNzQsNTEyKSIgZmlsbD0iIzcyODhBMSI+CjxwYXRoIGQ9Ik0yMTIgMzM5IDIyNyAzNThINDMzTDQ0MCAzMzlaTTY5NCAxMlE2OTggMTIgNjk4LjAgNi4wUTY5OCAwIDY5NCAwUTY2NiAwIDYzNi41IDIuMFE2MDcgNCA1ODAgNFE1NDkgNCA1MjYuNSAyLjBRNTA0IDAgNDc3IDBRNDczIDAgNDczLjAgNi4wUTQ3MyAxMiA0NzcgMTJRNTMzIDEyIDU0Ny41IDI3LjBRNTYyIDQyIDU0MyA4NEwzMTcgNTcwTDMzNiA1ODdMMTQzIDEyM1ExMTggNjIgMTM5LjAgMzcuMFExNjAgMTIgMjI4IDEyUTIzMyAxMiAyMzMuMCA2LjBRMjMzIDAgMjI4IDBRMTk4IDAgMTczLjAgMi4wUTE0OCA0IDExMCA0UTc1IDQgNTMuNSAyLjBRMzIgMCAyIDBRLTIgMCAtMi4wIDYuMFEtMiAxMiAyIDEyUTI5IDEyIDQ5LjAgMjIuMFE2OSAzMiA4Ni41IDU4LjBRMTA0IDg0IDEyNCAxMzJMMzMzIDYzNVEzMzUgNjM4IDMzOS41IDYzOC4wUTM0NCA2MzggMzQ1IDYzNUw1NzcgMTM3UTYwMCA4NyA2MTguMCA1OS41UTYzNiAzMiA2NTQuMCAyMi4wUTY3MiAxMiA2OTQgMTJaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMCwwKSBzY2FsZSgwLjA0ODAwMCwtMC4wNDgwMDApIi8+CjxwYXRoIGQ9Ik0xOTIgODFRMTkyIDUyIDE5OC4wIDM3LjBRMjA0IDIyIDIyMy41IDE3LjBRMjQzIDEyIDI4MSAxMlEyODMgMTIgMjgzLjAgNi4wUTI4MyAwIDI4MSAwUTI1NyAwIDIyOC4wIDEuMFExOTkgMiAxNjQgMlExMzEgMiAxMDEuNSAxLjBRNzIgMCA0OCAwUTQ1IDAgNDUuMCA2LjBRNDUgMTIgNDggMTJRODYgMTIgMTA1LjUgMTcuMFExMjUgMjIgMTMxLjUgMzcuMFExMzggNTIgMTM4IDgxVjU0NFExMzggNTczIDEzMS41IDU4Ny41UTEyNSA2MDIgMTA1LjUgNjA3LjVRODYgNjEzIDQ4IDYxM1E0NSA2MTMgNDUuMCA2MTkuMFE0NSA2MjUgNDggNjI1UTcyIDYyNSAxMDEuNSA2MjMuNVExMzEgNjIyIDE2NCA2MjJRMTk5IDYyMiAyMjguNSA2MjMuNVEyNTggNjI1IDI4MSA2MjVRMjgzIDYyNSAyODMuMCA2MTkuMFEyODMgNjEzIDI4MSA2MTNRMjQzIDYxMyAyMjQuMCA2MDcuMFEyMDUgNjAxIDE5OC41IDU4Ni4wUTE5MiA1NzEgMTkyIDU0MloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQzLjAwNCwwKSBzY2FsZSgwLjA0ODAwMCwtMC4wNDgwMDApIi8+CjxwYXRoIGQ9Ik00NTcgMEg0NFE0MiAwIDQyLjAgNi4wUTQyIDEyIDQ0IDEyUTgyIDEyIDEwMS4wIDE3LjBRMTIwIDIyIDEyNi41IDM3LjBRMTMzIDUyIDEzMyA4MVY1NDRRMTMzIDU3MyAxMjYuNSA1ODcuNVExMjAgNjAyIDEwMS4wIDYwNy41UTgyIDYxMyA0NCA2MTNRNDIgNjEzIDQyLjAgNjE5LjBRNDIgNjI1IDQ0IDYyNUg0NDBRNDQ5IDYyNSA0NDkgNjE2TDQ1MSA0OTVRNDUxIDQ5MiA0NDUuNSA0OTIuMFE0NDAgNDkyIDQ0MCA0OTVRNDQwIDU0NyA0MTMuMCA1NzYuNVEzODYgNjA2IDM0MiA2MDZIMjczUTIzNiA2MDYgMjE3LjUgNjAxLjBRMTk5IDU5NiAxOTIuNSA1ODEuNVExODYgNTY3IDE4NiA1MzhWODVRMTg2IDU3IDE5Mi41IDQzLjBRMTk5IDI5IDIxNy41IDI0LjBRMjM2IDE5IDI3MyAxOUgzNjVRNDA1IDE5IDQzNC4wIDU0LjBRNDYzIDg5IDQ3MCAxNDZRNDcwIDE0OSA0NzYuMCAxNDguNVE0ODIgMTQ4IDQ4MiAxNDVRNDc4IDExOSA0NzUuNSA4Mi41UTQ3MyA0NiA0NzMgMTVRNDczIDAgNDU3IDBaTTQwMSAyMzVRNDAxIDI4MCAzODIuMCAyOTguMFEzNjMgMzE2IDMxNSAzMTZIMTYxVjMzNUgzMThRMzY0IDMzNSAzODIuMCAzNTAuNVE0MDAgMzY2IDQwMCA0MDRRNDAwIDQwNiA0MDYuMCA0MDYuMFE0MTIgNDA2IDQxMiA0MDRRNDEyIDM3NSA0MTEuNSAzNTkuMFE0MTEgMzQzIDQxMSAzMjVRNDExIDMwMyA0MTIuMCAyODEuNVE0MTMgMjYwIDQxMyAyMzVRNDEzIDIzMyA0MDcuMCAyMzMuMFE0MDEgMjMzIDQwMSAyMzVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2OC4zNDQsMCkgc2NhbGUoMC4wNDgwMDAsLTAuMDQ4MDAwKSIvPgo8cGF0aCBkPSJNNjcwIDYyNVE2NzMgNjI1IDY3My4wIDYxOS4wUTY3MyA2MTMgNjcwIDYxM1E2MzkgNjEzIDYxNS41IDYwMC4wUTU5MiA1ODcgNTc0IDU0NEwzNTQgMVEzNTMgLTMgMzQzLjUgLTMuMFEzMzQgLTMgMzMyIDFMODUgNTQyUTY4IDU4MSA0OS4wIDU5Ny4wUTMwIDYxMyAtMiA2MTNRLTUgNjEzIC01LjAgNjE5LjBRLTUgNjI1IC0yIDYyNVExMiA2MjUgMjYuNSA2MjQuMFE0MSA2MjMgNTUuNSA2MjIuNVE3MCA2MjIgODMgNjIyUTEwNyA2MjIgMTI3LjAgNjIyLjVRMTQ3IDYyMyAxNjMuNSA2MjQuMFExODAgNjI1IDE5NSA2MjVRMTk4IDYyNSAxOTguMCA2MTkuMFExOTggNjEzIDE5NSA2MTNRMTU3IDYxMyAxNDEuMCA2MDAuNVExMjUgNTg4IDE0MiA1NTJMMzY2IDU3TDMzOSAyMEw1NTMgNTUwUTU2NyA1ODUgNTUyLjAgNTk5LjBRNTM3IDYxMyA0ODEgNjEzUTQ3OCA2MTMgNDc4LjAgNjE5LjBRNDc4IDYyNSA0ODEgNjI1UTUwNCA2MjUgNTI1LjUgNjIzLjVRNTQ3IDYyMiA1ODEgNjIyUTYxMCA2MjIgNjI3LjUgNjIzLjVRNjQ1IDYyNSA2NzAgNjI1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAzLjQyOCwwKSBzY2FsZSgwLjA0ODAwMCwtMC4wNDgwMDApIi8+CjxwYXRoIGQ9Ik0zNjYgLTEyUTI5NCAtMTIgMjM1LjUgMTMuNVExNzcgMzkgMTM1LjUgODQuMFE5NCAxMjkgNzEuNSAxODcuNVE0OSAyNDYgNDkgMzEyUTQ5IDM5MyA4MC41IDQ1NC4wUTExMiA1MTUgMTY0LjAgNTU1LjVRMjE2IDU5NiAyNzguMCA2MTYuMFEzNDAgNjM2IDQwMSA2MzZRNDc1IDYzNiA1MzMuNSA2MDkuNVE1OTIgNTgzIDYzMy4wIDUzOC4wUTY3NCA0OTMgNjk1LjUgNDM2LjBRNzE3IDM3OSA3MTcgMzE5UTcxNyAyNDkgNjg5LjAgMTg5LjBRNjYxIDEyOSA2MTIuNSA4NC4wUTU2NCAzOSA1MDAuNSAxMy41UTQzNyAtMTIgMzY2IC0xMlpNNDAyIDhRNDcyIDggNTI5LjAgNDAuNVE1ODYgNzMgNjE5LjUgMTM2LjVRNjUzIDIwMCA2NTMgMjkxUTY1MyAzODYgNjE2LjUgNDU4LjVRNTgwIDUzMSA1MTQuMCA1NzIuNVE0NDggNjE0IDM1OSA2MTRRMjQzIDYxNCAxNzguMCA1NDIuMFExMTMgNDcwIDExMyAzNDZRMTEzIDI3NiAxMzMuNSAyMTQuNVExNTQgMTUzIDE5Mi41IDEwNi41UTIzMSA2MCAyODQuMCAzNC4wUTMzNyA4IDQwMiA4WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ0Ljk0NCwwKSBzY2FsZSgwLjA0ODAwMCwtMC4wNDgwMDApIi8+CjxwYXRoIGQ9Ik0xNzggNTQzVjg1UTE3OCA1NyAxODQuNSA0My4wUTE5MSAyOSAyMDkuNSAyNC4wUTIyOCAxOSAyNjQgMTlIMzkyUTQ0NSAxOSA0NzMuMCA1NC4wUTUwMSA4OSA1MDkgMTQ2UTUwOSAxNDkgNTE0LjUgMTQ4LjVRNTIwIDE0OCA1MjAgMTQ1UTUxNyAxMTkgNTE0LjAgODIuNVE1MTEgNDYgNTExIDE1UTUxMSAwIDQ5NiAwSDM2UTM0IDAgMzQuMCA2LjBRMzQgMTIgMzYgMTJRNzQgMTIgOTMuMCAxNy4wUTExMiAyMiAxMTguNSAzNy4wUTEyNSA1MiAxMjUgODFWNTQ0UTEyNSA1NzMgMTE4LjUgNTg3LjVRMTEyIDYwMiA5My4wIDYwNy41UTc0IDYxMyAzNiA2MTNRMzQgNjEzIDM0LjAgNjE5LjBRMzQgNjI1IDM2IDYyNVE2MCA2MjUgODkuNSA2MjMuNVExMTkgNjIyIDE1MSA2MjJRMTg1IDYyMiAyMTQuNSA2MjMuNVEyNDQgNjI1IDI2NyA2MjVRMjY5IDYyNSAyNjkuMCA2MTkuMFEyNjkgNjEzIDI2NyA2MTNRMjI5IDYxMyAyMTAuMCA2MDcuNVExOTEgNjAyIDE4NC41IDU4Ny4wUTE3OCA1NzIgMTc4IDU0M1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5MS4yMTIsMCkgc2NhbGUoMC4wNDgwMDAsLTAuMDQ4MDAwKSIvPgo8cGF0aCBkPSJNNjcwIDYyNVE2NzMgNjI1IDY3My4wIDYxOS4wUTY3MyA2MTMgNjcwIDYxM1E2MzkgNjEzIDYxNS41IDYwMC4wUTU5MiA1ODcgNTc0IDU0NEwzNTQgMVEzNTMgLTMgMzQzLjUgLTMuMFEzMzQgLTMgMzMyIDFMODUgNTQyUTY4IDU4MSA0OS4wIDU5Ny4wUTMwIDYxMyAtMiA2MTNRLTUgNjEzIC01LjAgNjE5LjBRLTUgNjI1IC0yIDYyNVExMiA2MjUgMjYuNSA2MjQuMFE0MSA2MjMgNTUuNSA2MjIuNVE3MCA2MjIgODMgNjIyUTEwNyA2MjIgMTI3LjAgNjIyLjVRMTQ3IDYyMyAxNjMuNSA2MjQuMFExODAgNjI1IDE5NSA2MjVRMTk4IDYyNSAxOTguMCA2MTkuMFExOTggNjEzIDE5NSA2MTNRMTU3IDYxMyAxNDEuMCA2MDAuNVExMjUgNTg4IDE0MiA1NTJMMzY2IDU3TDMzOSAyMEw1NTMgNTUwUTU2NyA1ODUgNTUyLjAgNTk5LjBRNTM3IDYxMyA0ODEgNjEzUTQ3OCA2MTMgNDc4LjAgNjE5LjBRNDc4IDYyNSA0ODEgNjI1UTUwNCA2MjUgNTI1LjUgNjIzLjVRNTQ3IDYyMiA1ODEgNjIyUTYxMCA2MjIgNjI3LjUgNjIzLjVRNjQ1IDYyNSA2NzAgNjI1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjI2LjE1MiwwKSBzY2FsZSgwLjA0ODAwMCwtMC4wNDgwMDApIi8+CjxwYXRoIGQ9Ik00NTcgMEg0NFE0MiAwIDQyLjAgNi4wUTQyIDEyIDQ0IDEyUTgyIDEyIDEwMS4wIDE3LjBRMTIwIDIyIDEyNi41IDM3LjBRMTMzIDUyIDEzMyA4MVY1NDRRMTMzIDU3MyAxMjYuNSA1ODcuNVExMjAgNjAyIDEwMS4wIDYwNy41UTgyIDYxMyA0NCA2MTNRNDIgNjEzIDQyLjAgNjE5LjBRNDIgNjI1IDQ0IDYyNUg0NDBRNDQ5IDYyNSA0NDkgNjE2TDQ1MSA0OTVRNDUxIDQ5MiA0NDUuNSA0OTIuMFE0NDAgNDkyIDQ0MCA0OTVRNDQwIDU0NyA0MTMuMCA1NzYuNVEzODYgNjA2IDM0MiA2MDZIMjczUTIzNiA2MDYgMjE3LjUgNjAxLjBRMTk5IDU5NiAxOTIuNSA1ODEuNVExODYgNTY3IDE4NiA1MzhWODVRMTg2IDU3IDE5Mi41IDQzLjBRMTk5IDI5IDIxNy41IDI0LjBRMjM2IDE5IDI3MyAxOUgzNjVRNDA1IDE5IDQzNC4wIDU0LjBRNDYzIDg5IDQ3MCAxNDZRNDcwIDE0OSA0NzYuMCAxNDguNVE0ODIgMTQ4IDQ4MiAxNDVRNDc4IDExOSA0NzUuNSA4Mi41UTQ3MyA0NiA0NzMgMTVRNDczIDAgNDU3IDBaTTQwMSAyMzVRNDAxIDI4MCAzODIuMCAyOTguMFEzNjMgMzE2IDMxNSAzMTZIMTYxVjMzNUgzMThRMzY0IDMzNSAzODIuMCAzNTAuNVE0MDAgMzY2IDQwMCA0MDRRNDAwIDQwNiA0MDYuMCA0MDYuMFE0MTIgNDA2IDQxMiA0MDRRNDEyIDM3NSA0MTEuNSAzNTkuMFE0MTEgMzQzIDQxMSAzMjVRNDExIDMwMyA0MTIuMCAyODEuNVE0MTMgMjYwIDQxMyAyMzVRNDEzIDIzMyA0MDcuMCAyMzMuMFE0MDEgMjMzIDQwMSAyMzVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNjcuNjY4LDApIHNjYWxlKDAuMDQ4MDAwLC0wLjA0ODAwMCkiLz4KPC9nPgo8L3N2Zz4=" alt="AI Evolve" width="130" height="142">
+    <div>
+      <p><strong>Información de privacidad.</strong> Responsable: AI Evolve. Finalidad: contactar contigo para la demo que solicitas y enviarte información relacionada con ella. Legitimación: tu consentimiento. No cedemos tus datos a terceros salvo los proveedores técnicos necesarios para prestar el servicio. Puedes pedir el acceso, la rectificación o la supresión de tus datos en cualquier momento respondiendo a cualquiera de nuestros mensajes.</p>
+      <p>© AI Evolve</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn" href="#demo">Pedir demo gratuita</a></div>
+
+<script>
+(function () {
+  var SUPABASE_URL = "https://sdqhhziebuntuocroftm.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_qS6ONOGjkRukx3D6wqVQqg_L5B4E57m";
+  var $ = function (id) { return document.getElementById(id); };
+  var eur = { format: function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); } };
+
+  var log = $("log"), bSin = $("modo-sin"), bCon = $("modo-con");
+  function setMode(m) {
+    log.dataset.mode = m;
+    bSin.setAttribute("aria-pressed", String(m === "sin"));
+    bCon.setAttribute("aria-pressed", String(m === "con"));
+  }
+  bSin.addEventListener("click", function () { setMode("sin"); });
+  bCon.addEventListener("click", function () { setMode("con"); });
+
+  var ids = ["llamadas", "nuevos", "vuelven", "valor", "dias"];
+  function calc() {
+    var v = {};
+    ids.forEach(function (k) { v[k] = Number($("c-" + k).value); });
+    $("o-llamadas").textContent = v.llamadas;
+    $("o-nuevos").textContent = v.nuevos + " %";
+    $("o-vuelven").textContent = v.vuelven + " %";
+    $("o-valor").textContent = eur.format(v.valor) + " €";
+    $("o-dias").textContent = v.dias;
+    var citas = v.llamadas * (v.nuevos / 100) * (v.vuelven / 100) * v.dias;
+    var mes = citas * v.valor;
+    $("r-citas").textContent = eur.format(Math.round(citas));
+    $("r-euros").textContent = eur.format(Math.round(mes)) + " €";
+    $("r-anual").textContent = eur.format(Math.round(mes * 12)) + " €";
+  }
+  ids.forEach(function (k) { $("c-" + k).addEventListener("input", calc); });
+  calc();
+  $("ir-demo").addEventListener("click", function () {
+    $("f-perdidas").value = $("c-llamadas").value;
+  });
+
+  // Hide the mobile bar while the form is on screen
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      $("sticky").hidden = es[0].isIntersecting;
+    }, { threshold: 0.15 }).observe($("demo"));
+  }
+
+  var form = $("form"), msg = $("msg"), btn = $("enviar");
+  var errors = {
+    consent_required: "Marca la casilla de privacidad para poder contactarte.",
+    invalid_name: "Escribe tu nombre.",
+    invalid_clinic: "Escribe el nombre de la clínica.",
+    invalid_phone: "Revisa el teléfono: solo números, mínimo 9 cifras.",
+    invalid_email: "Revisa el email: parece incompleto.",
+    rate_limited: "Hay muchas solicitudes ahora mismo. Inténtalo de nuevo en unos minutos."
+  };
+  function utm() {
+    try {
+      var p = new URLSearchParams(location.search), out = [];
+      ["utm_source", "utm_medium", "utm_campaign"].forEach(function (k) {
+        if (p.get(k)) out.push(p.get(k));
+      });
+      return out.join(" / ").slice(0, 200);
+    } catch (e) { return ""; }
+  }
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    msg.textContent = "";
+    var d = {
+      p_name: $("f-nombre").value.trim(),
+      p_clinic: $("f-clinica").value.trim(),
+      p_phone: $("f-telefono").value.trim(),
+      p_email: $("f-email").value.trim(),
+      p_missed_calls: $("f-perdidas").value.trim(),
+      p_consent: $("f-consent").checked,
+      p_utm: utm(),
+      p_website: $("f-web").value
+    };
+    var bad = null;
+    if (d.p_name.length < 2) bad = ["invalid_name", "f-nombre"];
+    else if (d.p_clinic.length < 2) bad = ["invalid_clinic", "f-clinica"];
+    else if (!/^[0-9+ ()-]{9,20}$/.test(d.p_phone)) bad = ["invalid_phone", "f-telefono"];
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.p_email)) bad = ["invalid_email", "f-email"];
+    else if (!d.p_consent) bad = ["consent_required", "f-consent"];
+    if (bad) { msg.textContent = errors[bad[0]]; $(bad[1]).focus(); return; }
+
+    btn.disabled = true; btn.textContent = "Enviando…";
+    fetch(SUPABASE_URL + "/rest/v1/rpc/submit_landing_lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY },
+      body: JSON.stringify(d)
+    }).then(function (r) {
+      if (r.ok) return null;
+      return r.json().catch(function () { return {}; }).then(function (j) { throw new Error(j && j.message ? j.message : "unknown"); });
+    }).then(function () {
+      $("g-nombre").textContent = d.p_name.split(" ")[0];
+      $("g-tel").textContent = d.p_phone;
+      form.hidden = true;
+      var g = $("gracias"); g.hidden = false; g.focus();
+    }).catch(function (e) {
+      msg.textContent = errors[e.message] || "No se ha podido enviar. Comprueba tu conexión e inténtalo otra vez.";
+      btn.disabled = false; btn.textContent = "Pedir demo gratuita";
+    });
+  });
+})();
+</script>
+</body>
+</html>
