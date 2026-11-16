@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="text-scale" content="scale">
 <title>Asistente de voz para clínicas dentales | AI Evolve</title>
 <meta name="description" content="Un asistente de voz con IA contesta el teléfono de tu clínica dental a cualquier hora y deja la cita agendada. Calcula cuánto te cuestan las llamadas sin contestar y pide una demo.">
 <meta property="og:title" content="Asistente de voz para clínicas dentales | AI Evolve">
@@ -51,13 +52,13 @@
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 h1, h2 { font-family: var(--font-display); font-weight: 600; line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h1 { font-size: clamp(2.6rem, 1.5rem + 4.2vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem); }
 h3 { font: 700 1.12rem/1.25 var(--font-body); margin: 0; }
 p { margin: 0; }
+p, li { text-wrap: pretty; }
 a { color: inherit; }
 img, svg { max-width: 100%; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: 20px; }
@@ -67,8 +68,7 @@ img, svg { max-width: 100%; }
 a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: #fff; color: var(--ink); padding: 12px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; }
 .skip:focus { top: 12px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--mint); color: #0B2A26; text-decoration: none; font: 700 1rem var(--font-body); padding: 15px 24px; min-height: 48px; border: 0; border-radius: 999px; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 160ms ease; box-shadow: 0 10px 24px -14px rgba(152,238,218,.8); }
-.btn:active { transform: scale(.97); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--mint); color: #0B2A26; text-decoration: none; font: 700 1rem var(--font-body); padding: 15px 24px; min-block-size: 48px; border: 1px solid transparent; border-radius: 999px; cursor: pointer; transition: background-color 160ms ease; box-shadow: 0 10px 24px -14px rgba(152,238,218,.8); }
 .btn.dark { background: var(--ink); color: #fff; box-shadow: 0 12px 24px -14px rgba(23,26,46,.7); }
 .btn.ghost { background: transparent; color: var(--on-night); box-shadow: none; border: 1px solid #4A5080; }
 @media (hover: hover) and (pointer: fine) {
@@ -118,7 +118,8 @@ a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
 .call-head b { display: block; color: #fff; font-size: 1rem; line-height: 1.2; }
 .call-head span { font-size: .82rem; color: var(--mint); font-variant-numeric: tabular-nums; }
 .wave { display: flex; align-items: center; gap: 4px; height: 38px; padding: 0 4px; }
-.wave i { flex: 1; border-radius: 3px; background: linear-gradient(180deg, var(--mint), var(--lilac)); height: 30%; animation: wave 1.3s ease-in-out infinite; }
+.wave i { flex: 1; border-radius: 3px; background: linear-gradient(180deg, var(--mint), var(--lilac)); height: 55%; }
+.wave i:nth-child(odd) { height: 85%; }
 .wave i:nth-child(3n) { animation-delay: -.3s; } .wave i:nth-child(3n+1) { animation-delay: -.7s; } .wave i:nth-child(4n) { animation-delay: -1s; } .wave i:nth-child(5n) { animation-delay: -.5s; }
 @keyframes wave { 0%, 100% { height: 22%; } 50% { height: 95%; } }
 .bubbles { display: flex; flex-direction: column; gap: 8px; font-size: .86rem; line-height: 1.35; }
@@ -128,9 +129,9 @@ a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
 .booked { display: flex; align-items: center; gap: 10px; background: rgba(152,238,218,.12); border: 1px solid rgba(152,238,218,.4); border-radius: 14px; padding: 10px 12px; font-size: .86rem; color: #fff; }
 .booked svg { width: 22px; height: 22px; color: var(--mint); flex: none; }
 .booked small { display: block; color: var(--on-night-muted); font-size: .76rem; }
-.wave.rest i { animation: none; height: 14%; }
+.wave.rest i { height: 14%; }
 .phone.play .seq { opacity: 0; transform: translateY(8px) scale(.98); }
-.phone .seq { transition: opacity 260ms var(--ease-out), transform 320ms var(--ease-out); transform-origin: left bottom; }
+.phone .seq { transform-origin: left bottom; }
 .phone .us.seq { transform-origin: right bottom; }
 .phone.play .seq.on { opacity: 1; transform: none; }
 .replay { display: flex; justify-content: center; align-items: center; gap: 4px; margin-top: 6px; font-size: .85rem; color: var(--on-night-muted); }
@@ -138,6 +139,8 @@ a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
 
 /* Sections */
 section.block { padding-block: 84px; }
+section.block.tight { padding-block-start: 0; }
+.does h2 { margin-block-end: 18px; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .stack { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
 .stack ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--muted); }
@@ -150,7 +153,6 @@ section.block { padding-block: 84px; }
 .log-title small { display: block; font-weight: 500; color: var(--muted); font-size: .8rem; }
 .switch { display: inline-flex; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
 .switch button { border: 0; background: transparent; color: var(--muted); font: 600 .88rem var(--font-body); padding: 0 16px; min-height: 44px; border-radius: 999px; cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
-.switch button:active { transform: scale(.97); }
 .switch button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 .log ul { list-style: none; margin: 0; padding: 0; }
 .log li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); align-items: start; }
@@ -171,18 +173,23 @@ section.block { padding-block: 84px; }
 .band .lede { color: var(--on-night-muted); margin-top: 14px; }
 .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-top: 40px; align-items: start; }
 .fields { display: flex; flex-direction: column; gap: 22px; }
-.field label { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; font-size: .98rem; margin-bottom: 8px; }
-.field output { font-variant-numeric: tabular-nums; color: #fff; font-weight: 700; white-space: nowrap; }
+.field .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-weight: 600; font-size: .98rem; margin-bottom: 4px; }
+.field .val { font-variant-numeric: tabular-nums; color: #fff; font-weight: 700; white-space: nowrap; }
 input[type="range"] { --p: 50%; appearance: none; -webkit-appearance: none; width: 100%; height: 44px; margin: 0; padding: 0; border: 0; background: transparent; cursor: pointer; border-radius: 8px; }
 input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; background: linear-gradient(to right, var(--mint) var(--p), #3A4070 var(--p)); }
 input[type="range"]::-moz-range-track { height: 6px; border-radius: 999px; background: #3A4070; }
 input[type="range"]::-moz-range-progress { height: 6px; border-radius: 999px; background: var(--mint); }
-input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -9px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 2px 8px rgba(0,0,0,.45); transition: transform 160ms var(--ease-out); }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -9px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 2px 8px rgba(0,0,0,.45); }
 input[type="range"]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 2px 8px rgba(0,0,0,.45); }
-input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
+@media (forced-colors: active) {
+  input[type="range"]::-webkit-slider-runnable-track { border: 1px solid CanvasText; }
+  input[type="range"]::-moz-range-track { border: 1px solid CanvasText; }
+  .switch button[aria-pressed="true"] { outline: 2px solid Highlight; outline-offset: -2px; }
+  .tag, .slot.ai, .booked { border: 1px solid CanvasText; }
+}
 .result { background: var(--night-2); border: 1px solid var(--night-line); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); position: sticky; top: 24px; }
 .result .label { font-size: .85rem; color: var(--on-night-muted); font-weight: 600; }
-.result .big { font: 600 clamp(3rem, 8vw, 4.6rem)/1 var(--font-display); color: #fff; font-variant-numeric: lining-nums tabular-nums; }
+.result .big { font: 600 clamp(3rem, 2rem + 4vw, 4.6rem)/1 var(--font-display); color: #fff; font-variant-numeric: lining-nums tabular-nums; }
 .result .big small { font: 500 1rem var(--font-body); color: var(--on-night-muted); }
 .result dl { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; margin: 0; padding-top: 16px; border-top: 1px solid var(--night-line); font-size: .95rem; }
 .result dt { color: var(--on-night-muted); }
@@ -225,14 +232,12 @@ input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
 .faq { max-width: 780px; display: flex; flex-direction: column; }
 .faq { interpolate-size: allow-keywords; }
 .faq details { border-bottom: 1px solid var(--line); }
-.faq summary { font-weight: 700; cursor: pointer; font-size: 1.1rem; padding: 20px 44px 20px 0; position: relative; list-style: none; border-radius: 8px; }
+.faq summary { font-weight: 700; cursor: pointer; font-size: 1.1rem; padding: 20px 0 20px 34px; position: relative; list-style: none; border-radius: 8px; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::before, .faq summary::after { content: ""; position: absolute; right: 8px; top: 50%; width: 16px; height: 2px; border-radius: 2px; background: var(--ink); transition: transform 220ms var(--ease-out); }
-.faq summary::after { transform: rotate(90deg); }
-.faq details[open] summary::after { transform: rotate(0deg); }
-.faq details::details-content { block-size: 0; overflow: clip; transition: block-size 260ms var(--ease-out), content-visibility 260ms allow-discrete; }
-.faq details[open]::details-content { block-size: auto; }
-.faq p { color: var(--muted); padding-bottom: 20px; max-width: 62ch; }
+.faq summary::before, .faq summary::after { content: ""; position: absolute; left: 2px; top: calc(20px + .775em - 1px); width: 16px; height: 2px; border-radius: 2px; background: currentColor; }
+.faq summary::after { rotate: 90deg; }
+.faq details[open] summary::after { rotate: 0deg; }
+.faq p { color: var(--muted); padding: 0 0 20px 34px; max-width: 62ch; }
 
 /* Form */
 .cta { background: linear-gradient(160deg, #EAF8F4 0%, #F3ECF8 55%, #FBEEF3 100%); border-top: 1px solid var(--line); padding-block: 84px 92px; }
@@ -245,23 +250,30 @@ form { background: var(--card); border: 1px solid var(--line); border-radius: 24
 .f { display: flex; flex-direction: column; gap: 6px; }
 .f.full { grid-column: 1 / -1; }
 .f label { font-weight: 600; font-size: .92rem; }
-.f input { font: 500 1rem var(--font-body); color: var(--ink); padding: 13px 14px; min-height: 48px; border: 1px solid #8E91AD; border-radius: 12px; background: #fff; width: 100%; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.f input { font: 500 1rem var(--font-body); color: var(--ink); padding: 13px 14px; min-block-size: 48px; border: 1px solid #6B6F8D; border-radius: 12px; background: #fff; width: 100%; transition: border-color 160ms ease; }
 .f input::placeholder { color: #6A6F8C; }
-.f input:focus { outline: none; border-color: var(--mint-deep); box-shadow: 0 0 0 3px rgba(14,127,107,.25); }
+.f input:focus-visible { outline: 3px solid var(--mint-deep); outline-offset: 1px; border-color: var(--mint-deep); }
+/* Autofill keeps the browser's own tint and adds a shape cue, not just a colour */
+.f input:is(:autofill, :-webkit-autofill) { box-shadow: inset 0 0 0 2px var(--mint-deep); }
+.hint { font-size: .85rem; color: var(--muted); }
+.req { grid-column: 1 / -1; font-size: .88rem; color: var(--muted); }
+.sprite { position: absolute; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .f input[aria-invalid="true"], .consent input[aria-invalid="true"] { border-color: var(--missed); background: #FFF6F5; }
-.f input[aria-invalid="true"]:focus { box-shadow: 0 0 0 3px rgba(201,68,58,.25); }
+.f input[aria-invalid="true"]:focus-visible { outline-color: var(--missed); }
 .err { display: none; align-items: flex-start; gap: 6px; font-size: .88rem; font-weight: 600; color: #A8352C; }
 .err svg { width: 16px; height: 16px; flex: none; margin-top: 2px; }
 [aria-invalid="true"] ~ .err, .consent-wrap.bad .err { display: flex; }
 .consent-wrap { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; }
 .optional { font-weight: 500; color: var(--muted); }
-.consent { display: flex; gap: 12px; align-items: flex-start; font-size: .92rem; color: var(--muted); padding-block: 8px; cursor: pointer; }
+.consent { display: flex; gap: 12px; align-items: flex-start; font-size: .92rem; color: var(--muted); padding-block: 11px; min-block-size: 44px; cursor: pointer; }
 .consent input { margin-top: 1px; width: 22px; height: 22px; flex: none; accent-color: var(--mint-deep); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 form .btn { grid-column: 1 / -1; width: 100%; padding: 17px; font-size: 1.05rem; }
 .msg { grid-column: 1 / -1; font-size: .92rem; font-weight: 600; color: #A8352C; }
 .msg:empty { display: none; }
-.btn .spin { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; animation: spin .6s linear infinite; }
+.btn .spin { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; animation: spin .7s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .btn .spin { animation-duration: 2.4s; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 .note { grid-column: 1 / -1; font-size: .85rem; color: var(--muted); text-align: center; }
 .thanks { background: var(--card); border: 1px solid #A9E6D8; border-radius: 24px; padding: 34px; display: flex; flex-direction: column; gap: 12px; }
@@ -274,7 +286,7 @@ footer p + p { margin-top: 10px; }
 footer strong { color: var(--on-night); }
 
 .sticky { display: none; }
-@media (max-width: 900px) {
+@media (max-width: 56.25em) {
   .hero, .split, .calc, .cta-grid { grid-template-columns: 1fr; gap: 36px; }
   .steps { grid-template-columns: 1fr; }
   .hero { padding-block: 24px 56px; }
@@ -287,7 +299,7 @@ footer strong { color: var(--on-night); }
   .sticky { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(20,23,42,.94); border-top: 1px solid var(--night-line); }
   .sticky .btn { width: 100%; padding: 13px; }
 }
-@media (max-width: 520px) {
+@media (max-width: 32.5em) {
   form { grid-template-columns: 1fr; padding: 20px; }
   .top .btn { display: none; }
   .brand svg { height: 38px; }
@@ -298,27 +310,36 @@ footer strong { color: var(--on-night); }
   .slot { flex: 1; min-height: 0; font-size: .78rem; }
   .slot.empty { display: none; }
 }
+/* Motion is opt-in: every animation lives here, so reduced motion keeps the static page */
 @media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .btn, .switch button { transition: translate 160ms var(--ease-out), scale 160ms var(--ease-out), background-color 160ms ease, color 160ms ease; }
+  .btn:active, .switch button:active { scale: .97; }
+  input[type="range"]::-webkit-slider-thumb { transition: scale 160ms var(--ease-out); }
+  input[type="range"]:active::-webkit-slider-thumb { scale: 1.15; }
+  .wave:not(.rest) i { animation: wave 1.3s ease-in-out infinite; }
+  .phone .seq { transition: opacity 260ms var(--ease-out), transform 320ms var(--ease-out); }
+  .faq summary::before, .faq summary::after { transition: rotate 220ms var(--ease-out); }
+  .faq details::details-content { block-size: 0; overflow: clip; transition: block-size 260ms var(--ease-out), content-visibility 260ms; transition-behavior: allow-discrete; }
+  .faq details[open]::details-content { block-size: auto; }
   .hero-copy > *, .phone-col { animation: rise 700ms var(--ease-out) backwards; }
-  .hero-copy > :nth-child(2) { animation-delay: 60ms; }
-  .hero-copy > :nth-child(3) { animation-delay: 120ms; }
-  .hero-copy > :nth-child(4) { animation-delay: 180ms; }
-  .hero-copy > :nth-child(5) { animation-delay: 240ms; }
+  @supports (animation-delay: calc(sibling-index() * 0.1s)) {
+    .hero-copy > * { animation-delay: calc((sibling-index() - 1) * 60ms); }
+  }
+  @supports not (animation-delay: calc(sibling-index() * 0.1s)) {
+    .hero-copy > :nth-child(2) { animation-delay: 60ms; }
+    .hero-copy > :nth-child(3) { animation-delay: 120ms; }
+    .hero-copy > :nth-child(4) { animation-delay: 180ms; }
+  }
   .phone-col { animation-delay: 160ms; }
-  @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .wave i { height: 55%; }
-  .wave i:nth-child(odd) { height: 85%; }
+  @keyframes rise { from { opacity: 0; translate: 0 14px; } }
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5" stroke-width="1.8"/><path d="M7.5 12.4l3 3 6-6.6"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5" stroke-width="1.8"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/></symbol>
@@ -399,9 +420,9 @@ footer strong { color: var(--on-night); }
         <a class="btn ghost" href="#demo">Pedir demo gratuita</a>
       </div>
       <ul class="facts">
-        <li><svg><use href="#i-clock"/></svg>Contesta a cualquier hora</li>
-        <li><svg><use href="#i-calls"/></svg>Varias llamadas a la vez</li>
-        <li><svg><use href="#i-cal"/></svg>Deja la cita agendada</li>
+        <li><svg aria-hidden="true"><use href="#i-clock"/></svg>Contesta a cualquier hora</li>
+        <li><svg aria-hidden="true"><use href="#i-calls"/></svg>Varias llamadas a la vez</li>
+        <li><svg aria-hidden="true"><use href="#i-cal"/></svg>Deja la cita agendada</li>
       </ul>
     </div>
 
@@ -412,7 +433,7 @@ footer strong { color: var(--on-night); }
           <div class="screen">
             <div class="notch"></div>
             <div class="call-head">
-              <div class="avatar"><svg><use href="#i-voice"/></svg></div>
+              <div class="avatar"><svg aria-hidden="true"><use href="#i-voice"/></svg></div>
               <div><b>Asistente de la clínica</b><span id="call-state">En llamada · 00:42</span></div>
             </div>
             <div class="wave" id="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -421,7 +442,7 @@ footer strong { color: var(--on-night); }
               <p class="us seq">Claro. Tengo hueco el jueves a las 10:30 o el viernes a las 17:00. ¿Cuál te viene mejor?</p>
               <p class="them seq">El jueves por la mañana.</p>
             </div>
-            <div class="booked seq"><svg><use href="#i-cal"/></svg><div><b>Cita agendada</b><small>Limpieza · jueves 10:30</small></div></div>
+            <div class="booked seq"><svg aria-hidden="true"><use href="#i-cal"/></svg><div><b>Cita agendada</b><small>Limpieza · jueves 10:30</small></div></div>
           </div>
         </div>
       </div>
@@ -482,31 +503,31 @@ footer strong { color: var(--on-night); }
       <div class="calc">
         <div class="fields">
           <div class="field">
-            <label for="c-llamadas">Llamadas que no cogéis al día <output id="o-llamadas" for="c-llamadas">6</output></label>
+            <div class="row"><label for="c-llamadas">Llamadas que no cogéis al día</label><span class="val" id="o-llamadas" aria-hidden="true">6</span></div>
             <input type="range" id="c-llamadas" min="1" max="30" step="1" value="6">
           </div>
           <div class="field">
-            <label for="c-nuevos">De esas, cuántas eran para pedir cita <output id="o-nuevos" for="c-nuevos">30 %</output></label>
+            <div class="row"><label for="c-nuevos">De esas, cuántas eran para pedir cita</label><span class="val" id="o-nuevos" aria-hidden="true">30 %</span></div>
             <input type="range" id="c-nuevos" min="5" max="100" step="5" value="30">
           </div>
           <div class="field">
-            <label for="c-vuelven">Cuántos no vuelven a llamar <output id="o-vuelven" for="c-vuelven">50 %</output></label>
+            <div class="row"><label for="c-vuelven">Cuántos no vuelven a llamar</label><span class="val" id="o-vuelven" aria-hidden="true">50 %</span></div>
             <input type="range" id="c-vuelven" min="10" max="100" step="5" value="50">
           </div>
           <div class="field">
-            <label for="c-valor">Valor medio de esa cita <output id="o-valor" for="c-valor">80 €</output></label>
+            <div class="row"><label for="c-valor">Valor medio de esa cita</label><span class="val" id="o-valor" aria-hidden="true">80 €</span></div>
             <input type="range" id="c-valor" min="30" max="600" step="10" value="80">
           </div>
           <div class="field">
-            <label for="c-dias">Días que abrís al mes <output id="o-dias" for="c-dias">22</output></label>
+            <div class="row"><label for="c-dias">Días que abrís al mes</label><span class="val" id="o-dias" aria-hidden="true">22</span></div>
             <input type="range" id="c-dias" min="15" max="30" step="1" value="22">
           </div>
         </div>
 
-        <div class="result" aria-live="polite">
+        <div class="result">
           <div>
             <div class="label">Lo que se va por el teléfono</div>
-            <div class="big"><span id="r-euros">1.584 €</span> <small>al mes</small></div>
+            <div class="big"><output id="r-euros" for="c-llamadas c-nuevos c-vuelven c-valor c-dias">1.584 €</output> <small>al mes</small></div>
           </div>
           <dl>
             <dt>Citas que se pierden al mes</dt><dd id="r-citas">20</dd>
@@ -533,7 +554,7 @@ footer strong { color: var(--on-night); }
     </div>
   </section>
 
-  <section class="block" style="padding-top:0">
+  <section class="block tight">
     <div class="wrap split">
       <div class="agenda order-first" role="img" aria-label="Ilustración: agenda semanal con citas agendadas por el asistente">
         <div class="agenda-head"><b>Agenda de la semana</b><span>Ejemplo</span></div>
@@ -549,30 +570,30 @@ footer strong { color: var(--on-night); }
 
       <div class="does">
         <div class="yes">
-          <h2 style="margin-bottom:18px">Hace lo que le toca. Nada más.</h2>
+          <h2>Hace lo que le toca. Nada más.</h2>
           <h3>Lo que hace</h3>
           <ul>
-            <li><svg><use href="#i-check"/></svg>Contesta a cualquier hora, también fines de semana y festivos.</li>
-            <li><svg><use href="#i-check"/></svg>Atiende varias llamadas a la vez: nadie escucha comunicando.</li>
-            <li><svg><use href="#i-check"/></svg>Agenda citas y responde a horarios, dirección y dudas frecuentes.</li>
-            <li><svg><use href="#i-check"/></svg>Deja constancia de cada llamada para que nada se quede sin devolver.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Contesta a cualquier hora, también fines de semana y festivos.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Atiende varias llamadas a la vez: nadie escucha comunicando.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Agenda citas y responde a horarios, dirección y dudas frecuentes.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Deja constancia de cada llamada para que nada se quede sin devolver.</li>
           </ul>
         </div>
         <div class="no">
           <h3>Lo que no hace</h3>
           <ul>
-            <li><svg><use href="#i-x"/></svg>No da diagnósticos ni consejos clínicos.</li>
-            <li><svg><use href="#i-x"/></svg>No sustituye a tu recepción: le quita el teléfono de encima.</li>
-            <li><svg><use href="#i-x"/></svg>No improvisa: si no sabe algo, toma nota para que la clínica devuelva la llamada.</li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg>No da diagnósticos ni consejos clínicos.</li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg>No sustituye a tu recepción: le quita el teléfono de encima.</li>
+            <li><svg aria-hidden="true"><use href="#i-x"/></svg>No improvisa: si no sabe algo, toma nota para que la clínica devuelva la llamada.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="dudas" style="padding-top:0">
+  <section class="block tight" id="dudas" aria-labelledby="dudas-titulo">
     <div class="wrap">
-      <div class="block-head"><h2>Preguntas habituales</h2></div>
+      <div class="block-head"><h2 id="dudas-titulo">Preguntas habituales</h2></div>
       <div class="faq">
         <details>
           <summary>¿Suena a robot?</summary>
@@ -597,40 +618,41 @@ footer strong { color: var(--on-night); }
   <div class="cta" id="demo">
     <div class="wrap cta-grid">
       <div class="cta-copy">
-        <h2>Escúchalo atender una llamada de tu clínica</h2>
+        <h2 id="demo-titulo">Escúchalo atender una llamada de tu clínica</h2>
         <p class="lede">Déjanos tus datos y te llamamos en un día laborable para fijar la hora.</p>
         <ul>
-          <li><svg><use href="#i-check"/></svg>15 minutos, sin compromiso.</li>
-          <li><svg><use href="#i-check"/></svg>Escuchas al asistente en directo.</li>
-          <li><svg><use href="#i-check"/></svg>Sales con el precio y los pasos claros.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>15 minutos, sin compromiso.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Escuchas al asistente en directo.</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sales con el precio y los pasos claros.</li>
         </ul>
       </div>
 
       <div>
-        <form id="form" novalidate>
+        <form id="form" novalidate aria-labelledby="demo-titulo">
+          <p class="req">Todos los campos son obligatorios salvo el marcado como opcional.</p>
           <div class="f">
             <label for="f-nombre">Tu nombre</label>
-            <input type="text" id="f-nombre" name="nombre" autocomplete="name" autocapitalize="words" minlength="2" maxlength="80" required data-error="e-nombre">
+            <input type="text" id="f-nombre" aria-invalid="false" name="nombre" autocomplete="name" autocapitalize="words" enterkeyhint="next" minlength="2" maxlength="80" required data-error="e-nombre">
             <p class="err" id="e-nombre"><svg aria-hidden="true"><use href="#i-x"/></svg><span>Escribe tu nombre.</span></p>
           </div>
           <div class="f">
             <label for="f-clinica">Nombre de la clínica</label>
-            <input type="text" id="f-clinica" name="clinica" autocomplete="organization" minlength="2" maxlength="120" required data-error="e-clinica">
+            <input type="text" id="f-clinica" aria-invalid="false" name="clinica" autocomplete="organization" enterkeyhint="next" minlength="2" maxlength="120" required data-error="e-clinica">
             <p class="err" id="e-clinica"><svg aria-hidden="true"><use href="#i-x"/></svg><span>Escribe el nombre de la clínica.</span></p>
           </div>
           <div class="f">
             <label for="f-telefono">Teléfono</label>
-            <input type="tel" id="f-telefono" name="telefono" autocomplete="tel" inputmode="tel" pattern="[0-9+ ()\-]{9,20}" maxlength="20" required data-error="e-telefono">
+            <input type="tel" id="f-telefono" aria-invalid="false" name="telefono" autocomplete="tel" inputmode="tel" enterkeyhint="next" pattern="[0-9+ ()\-]{9,20}" maxlength="20" required data-error="e-telefono">
             <p class="err" id="e-telefono"><svg aria-hidden="true"><use href="#i-x"/></svg><span>Escribe un teléfono de al menos 9 cifras, solo con números.</span></p>
           </div>
           <div class="f">
             <label for="f-email">Email</label>
-            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="160" required data-error="e-email">
+            <input type="email" id="f-email" aria-invalid="false" name="email" autocomplete="email" inputmode="email" enterkeyhint="next" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="160" required data-error="e-email">
             <p class="err" id="e-email"><svg aria-hidden="true"><use href="#i-x"/></svg><span>Escribe un email completo, como nombre@clinica.es.</span></p>
           </div>
           <div class="f full">
             <label for="f-perdidas">Llamadas que se os escapan al día <span class="optional">(opcional)</span></label>
-            <input type="number" id="f-perdidas" name="perdidas" min="0" max="500" inputmode="numeric">
+            <input type="number" id="f-perdidas" name="perdidas" min="0" max="500" inputmode="numeric" enterkeyhint="send">
           </div>
           <div class="hp" aria-hidden="true">
             <label for="f-web">No rellenes este campo</label>
@@ -638,17 +660,17 @@ footer strong { color: var(--on-night); }
           </div>
           <div class="consent-wrap" id="consent-wrap">
             <label class="consent" for="f-consent">
-              <input type="checkbox" id="f-consent" name="consent" required data-error="e-consent">
+              <input type="checkbox" id="f-consent" aria-invalid="false" name="consent" required data-error="e-consent">
               <span>Acepto que AI Evolve use estos datos para contactarme sobre la demo, según la <a href="#privacidad">información de privacidad</a>.</span>
             </label>
             <p class="err" id="e-consent"><svg aria-hidden="true"><use href="#i-x"/></svg><span>Marca la casilla para que podamos contactarte.</span></p>
           </div>
           <p class="msg" id="msg" role="alert"></p>
           <button class="btn dark" type="submit" id="enviar">Pedir demo gratuita</button>
-          <p class="note">Te llamamos en un día laborable. Sin compromiso.</p>
+          <p class="note">Solo usamos tu teléfono y tu email para fijar la demo.</p>
         </form>
 
-        <div class="thanks" id="gracias" hidden tabindex="-1">
+        <div class="thanks" id="gracias" role="status" hidden tabindex="-1">
           <h3>Recibido, <span id="g-nombre"></span>.</h3>
           <p>Te llamamos en un día laborable al <strong id="g-tel"></strong> para fijar la hora de la demo.</p>
           <p>Si prefieres otro horario, dínoslo cuando te llamemos.</p>
@@ -667,6 +689,8 @@ footer strong { color: var(--on-night); }
     </div>
   </div>
 </footer>
+
+<div class="visually-hidden" id="live" aria-live="polite"></div>
 
 <div class="sticky" id="sticky"><a class="btn" href="#demo">Pedir demo gratuita</a></div>
 
@@ -690,11 +714,8 @@ footer strong { color: var(--on-night); }
   function calc() {
     var v = {};
     ids.forEach(function (k) { v[k] = Number($("c-" + k).value); });
-    $("o-llamadas").textContent = v.llamadas;
-    $("o-nuevos").textContent = v.nuevos + " %";
-    $("o-vuelven").textContent = v.vuelven + " %";
-    $("o-valor").textContent = eur.format(v.valor) + " €";
-    $("o-dias").textContent = v.dias;
+    var text = { llamadas: v.llamadas + "", nuevos: v.nuevos + " %", vuelven: v.vuelven + " %", valor: eur.format(v.valor) + " €", dias: v.dias + "" };
+    ids.forEach(function (k) { $("o-" + k).textContent = text[k]; $("c-" + k).setAttribute("aria-valuetext", text[k]); });
     var citas = v.llamadas * (v.nuevos / 100) * (v.vuelven / 100) * v.dias;
     var mes = citas * v.valor;
     $("r-citas").textContent = eur.format(Math.round(citas));
@@ -716,17 +737,17 @@ footer strong { color: var(--on-night); }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function play() {
     timers.forEach(clearTimeout); timers = [];
-    var seq = phone.querySelectorAll(".seq"), at = [700, 2300, 4700, 6100], secs = 0;
+    var seq = phone.querySelectorAll(".seq"), at = [400, 1500, 3200, 4100];
     seq.forEach(function (el) { el.classList.remove("on"); });
     phone.classList.add("play"); wave.classList.remove("rest"); replay.hidden = true;
     state.textContent = "En llamada · 00:00";
-    for (var s = 1; s <= 6; s++) (function (n) {
+    for (var s = 1; s <= 4; s++) (function (n) {
       timers.push(setTimeout(function () { state.textContent = "En llamada · 00:" + pad(n); }, n * 1000));
     })(s);
     seq.forEach(function (el, i) { timers.push(setTimeout(function () { el.classList.add("on"); }, at[i])); });
     timers.push(setTimeout(function () {
-      wave.classList.add("rest"); state.textContent = "Llamada finalizada · 00:06"; replay.hidden = false;
-    }, 6600));
+      wave.classList.add("rest"); state.textContent = "Llamada finalizada · 00:04"; replay.hidden = false;
+    }, 4600));
   }
   if (reduce) { wave.classList.add("rest"); } else { play(); replay.addEventListener("click", play); }
   $("ir-demo").addEventListener("click", function () {
@@ -753,16 +774,21 @@ footer strong { color: var(--on-night); }
     return el.value.trim().length > 0 && el.checkValidity();
   }
   function mark(el, bad) {
-    if (bad) { el.setAttribute("aria-invalid", "true"); el.setAttribute("aria-describedby", el.dataset.error); }
-    else { el.removeAttribute("aria-invalid"); el.removeAttribute("aria-describedby"); }
+    el.setAttribute("aria-invalid", bad ? "true" : "false");
+    if (bad) el.setAttribute("aria-describedby", el.dataset.error); else el.removeAttribute("aria-describedby");
     if (el.id === "f-consent") $("consent-wrap").classList.toggle("bad", bad);
   }
   // Validate once the person leaves a field they touched, and clear the error as soon as it is fixed
   fields.forEach(function (el) {
     var touched = false;
-    el.addEventListener("input", function () { touched = true; if (el.getAttribute("aria-invalid")) mark(el, !ok(el)); });
+    el.addEventListener("input", function () { touched = true; if (el.getAttribute("aria-invalid") === "true") mark(el, !ok(el)); });
     el.addEventListener("change", function () { touched = true; if (el.type === "checkbox") mark(el, !ok(el)); });
-    el.addEventListener("blur", function () { if (touched && el.type !== "checkbox") mark(el, !ok(el)); });
+    el.addEventListener("blur", function () {
+      if (!touched || el.type === "checkbox") return;
+      var bad = !ok(el); mark(el, bad);
+      // announced a moment later so it does not talk over the next field
+      if (bad) setTimeout(function () { $("live").textContent = $(el.dataset.error).textContent.trim(); }, 300);
+    });
   });
   function utm() {
     try {
