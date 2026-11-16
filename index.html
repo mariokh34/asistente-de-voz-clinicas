@@ -89,6 +89,8 @@ a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
     var(--night); }
 .top-wrap { display: flex; flex-direction: column; min-height: min(100svh, 900px); }
 .top-wrap .hero { flex: 1; }
+/* auto side margins would shrink a flex child to its content, so pin the width */
+.top-wrap > .wrap { inline-size: 100%; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; }
 .brand { display: inline-flex; line-height: 0; }
 .brand svg { height: 44px; width: auto; }
